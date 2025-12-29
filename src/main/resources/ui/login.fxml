@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.inmo.ui.LoginController"
+      spacing="12" alignment="CENTER" stylesheets="@../css/style.css">
+    <padding><Insets topRightBottomLeft="40"/></padding>
+
+    <Label text="INMO - Inicio de sesión" styleClass="title"/>
+    <VBox spacing="8" maxWidth="360" alignment="CENTER_LEFT" styleClass="card">
+        <Label text="Email"/>
+        <TextField fx:id="txtEmail" promptText="admin@inmo.test"/>
+        <Label text="Contraseña"/>
+        <PasswordField fx:id="txtPassword" promptText="********"/>
+        <Label fx:id="lblError" styleClass="error-label"/>
+        <Button fx:id="btnLogin" text="Entrar" onAction="#onLogin" styleClass="button primary"
+                maxWidth="Infinity"/>
+    </VBox>
+</VBox>

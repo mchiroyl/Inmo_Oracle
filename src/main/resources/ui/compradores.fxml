@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.inmo.ui.CompradoresController" prefWidth="1000" prefHeight="650">
+
+    <top>
+        <ToolBar>
+            <Label text="Gestión de Compradores" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Nuevo" onAction="#onNuevo"/>
+            <Button text="Guardar" onAction="#onGuardar"/>
+            <Button text="Eliminar" onAction="#onEliminar"/>
+            <Button text="Refrescar" onAction="#onRefrescar"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.4">
+            <!-- Panel izquierdo: Tabla -->
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <TableView fx:id="tableCompradores" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                        <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150"/>
+                        <TableColumn fx:id="colApellido" text="Apellido" prefWidth="150"/>
+                        <TableColumn fx:id="colTelefono" text="Teléfono" prefWidth="120"/>
+                        <TableColumn fx:id="colEstadoCivil" text="Estado Civil" prefWidth="120"/>
+                        <TableColumn fx:id="colEdad" text="Edad" prefWidth="60"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Panel derecho: Formulario -->
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <GridPane hgap="10" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="120" prefWidth="120"/>
+                        <ColumnConstraints minWidth="200" hgrow="ALWAYS"/>
+                    </columnConstraints>
+
+                    <Label text="ID:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="txtId" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Apellido:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="txtApellido" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="txtTelefono" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                    <Label text="Dirección:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="txtDireccion" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                    <Label text="Estado Civil:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <ComboBox fx:id="cboEstadoCivil" GridPane.columnIndex="1" GridPane.rowIndex="5" maxWidth="Infinity"/>
+
+                    <Label text="Nacionalidad:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                    <TextField fx:id="txtNacionalidad" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+                    <Label text="Edad:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+                    <TextField fx:id="txtEdad" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
+                    <Label text="Agente:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+                    <ComboBox fx:id="cboAgente" GridPane.columnIndex="1" GridPane.rowIndex="8" maxWidth="Infinity"/>
+                </GridPane>
+
+                <HBox spacing="10">
+                    <Button fx:id="btnNuevo" text="Nuevo" onAction="#onNuevo"/>
+                    <Button fx:id="btnGuardar" text="Guardar" onAction="#onGuardar"/>
+                    <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar"/>
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+
+</BorderPane>

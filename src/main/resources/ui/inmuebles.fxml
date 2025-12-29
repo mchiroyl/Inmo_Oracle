@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21.0.4" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.inmo.ui.InmueblesController"
+            prefWidth="1200" prefHeight="600">
+
+    <!-- Barra superior -->
+    <top>
+        <ToolBar>
+            <Label text="Administración de inmuebles" />
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Nuevo"   onAction="#onNuevo"    fx:id="btnNuevo"/>
+            <Button text="Guardar" onAction="#onGuardar"  fx:id="btnGuardar"/>
+            <Button text="Eliminar" onAction="#onEliminar" fx:id="btnEliminar"/>
+            <Button text="Buscar"  onAction="#onBuscar"   fx:id="btnBuscar"/>
+        </ToolBar>
+    </top>
+
+    <!-- Panel izquierdo: filtros y edición -->
+    <left>
+        <VBox spacing="8.0" prefWidth="420" style="-fx-background-color: #F5F7FA;">
+            <children>
+                <Label text="Vendedor" />
+                <ComboBox fx:id="cmbVendedor" promptText="Seleccione vendedor..." />
+
+                <Separator />
+
+                <Label text="Dirección" />
+                <TextField fx:id="txtDireccion" promptText="Ej.: Zona 1, 4 avenida" />
+
+                <Label text="Tipo" />
+                <!-- Editable = true para permitir escribir tipos nuevos -->
+                <ComboBox fx:id="cmbTipo" promptText="Casa, apartamento, terreno..."
+                          editable="true" />
+
+                <Label text="Precio" />
+                <TextField fx:id="txtPrecio" promptText="Ej.: 250000" />
+
+                <Separator />
+
+                <Label text="Condición de búsqueda" />
+                <TextField fx:id="txtCondicion" promptText="Ej.: zona 1, casa, departamento" />
+
+                <Label fx:id="lblInfo" textFill="#CC3333" text="Nuevo inmueble." />
+            </children>
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+        </VBox>
+    </left>
+
+    <!-- Tabla -->
+    <center>
+        <TableView fx:id="tbl">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="120"/>
+                <TableColumn fx:id="colDir" text="Dirección" prefWidth="420"/>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="220"/>
+                <TableColumn fx:id="colPrecio" text="Precio" prefWidth="220"/>
+                <TableColumn fx:id="colVendedor" text="Vendedor" prefWidth="220"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>

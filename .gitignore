@@ -1,0 +1,67 @@
+# Archivos compilados de Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Archivos de Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Archivos de IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.classpath
+.project
+*.swp
+*.swo
+*~
+.claude/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+nul
+
+# Archivos de logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+# Archivos de configuración local (no subir credenciales)
+# Descomenta la siguiente línea si decides no subir el hibernate.cfg.xml
+# src/main/resources/hibernate.cfg.xml
+
+# Archivos comprimidos
+*.zip
+*.rar
+*.tar.gz
+*.7z
+
+# Archivos de backup de base de datos
+*.dump
+*.sql.bak
+
+# Directorio de dependencias de Node (si usas herramientas frontend)
+node_modules/
+
+# Archivos de construcción
+build/
+dist/
+out/

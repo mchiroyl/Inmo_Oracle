@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.inmo.ui.OfertasController" prefWidth="900" prefHeight="600">
+
+    <top>
+        <VBox spacing="10">
+            <ToolBar>
+                <Label text="Gestión de Ofertas" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Nueva Oferta" onAction="#onNueva"/>
+                <Button text="Contraofertar" onAction="#onContraofertar"/>
+                <Button text="Aceptar" onAction="#onAceptar"/>
+                <Button text="Rechazar" onAction="#onRechazar"/>
+                <Button text="Refrescar" onAction="#onRefrescar"/>
+            </ToolBar>
+
+            <!-- Información del usuario -->
+            <HBox spacing="10" style="-fx-padding: 5 10 5 10; -fx-background-color: #f0f0f0;">
+                <Label fx:id="lblInfo" text="Cargando..." style="-fx-font-size: 12px;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.5">
+            <!-- Panel izquierdo: Tabla -->
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <!-- Tabla de ofertas -->
+                <TableView fx:id="tableOfertas" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                        <TableColumn fx:id="colInmueble" text="Inmueble" prefWidth="200"/>
+                        <TableColumn fx:id="colComprador" text="Comprador" prefWidth="150"/>
+                        <TableColumn fx:id="colMonto" text="Monto" prefWidth="120"/>
+                        <TableColumn fx:id="colPrioridad" text="Prioridad" prefWidth="80"/>
+                        <TableColumn fx:id="colEstado" text="Estado" prefWidth="120"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Panel derecho: Formulario -->
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <Label text="Datos de la Oferta" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="120" prefWidth="120"/>
+                        <ColumnConstraints minWidth="200" hgrow="ALWAYS"/>
+                    </columnConstraints>
+
+                    <Label text="Inmueble:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <ComboBox fx:id="cboInmueble" GridPane.columnIndex="1" GridPane.rowIndex="0" maxWidth="Infinity"/>
+
+                    <Label text="Comprador:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <ComboBox fx:id="cboComprador" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="Infinity"/>
+
+                    <Label text="Monto:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="txtMonto" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Estado:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <ComboBox fx:id="cboEstado" GridPane.columnIndex="1" GridPane.rowIndex="3" maxWidth="Infinity"/>
+
+                    <Label text="Comentarios:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextArea fx:id="txtComentarios" GridPane.columnIndex="1" GridPane.rowIndex="4" prefRowCount="3"/>
+
+                    <Label fx:id="lblPrioridad" text="Prioridad: -" GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="2" style="-fx-font-weight: bold;"/>
+                </GridPane>
+
+                <HBox spacing="10">
+                    <Button fx:id="btnNueva" text="Nueva" onAction="#onNueva"/>
+                    <Button fx:id="btnGuardar" text="Guardar" onAction="#onGuardar"/>
+                    <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar"/>
+                </HBox>
+
+                <Separator/>
+
+                <Label text="Acciones" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                <HBox spacing="10">
+                    <Button fx:id="btnAceptar" text="Aceptar" onAction="#onAceptar"/>
+                    <Button fx:id="btnRechazar" text="Rechazar" onAction="#onRechazar"/>
+                    <Button fx:id="btnContraofertar" text="Contraofertar" onAction="#onContraofertar"/>
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+
+</BorderPane>

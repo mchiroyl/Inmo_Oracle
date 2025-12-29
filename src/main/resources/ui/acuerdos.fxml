@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.inmo.ui.AcuerdosController" prefWidth="1100" prefHeight="700">
+
+    <top>
+        <ToolBar>
+            <Label text="Gestión de Acuerdos (Ventas)" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Nuevo" onAction="#onNuevo"/>
+            <Button text="Guardar" onAction="#onGuardar"/>
+            <Button text="Completar" fx:id="btnCompletar" onAction="#onCompletar" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+            <Button text="Cancelar" fx:id="btnEliminar" onAction="#onEliminar"/>
+            <Button text="Refrescar" onAction="#onRefrescar"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.5">
+            <!-- Panel izquierdo: Tabla -->
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <TableView fx:id="tableAcuerdos" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                        <TableColumn fx:id="colInmueble" text="Inmueble" prefWidth="200"/>
+                        <TableColumn fx:id="colComprador" text="Comprador" prefWidth="150"/>
+                        <TableColumn fx:id="colVendedor" text="Vendedor" prefWidth="150"/>
+                        <TableColumn fx:id="colMonto" text="Monto Final" prefWidth="120"/>
+                        <TableColumn fx:id="colEstado" text="Estado" prefWidth="120"/>
+                        <TableColumn fx:id="colFechaAcuerdo" text="Fecha Acuerdo" prefWidth="120"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Panel derecho: Formulario -->
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <Label text="Datos del Acuerdo de Venta" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+                <TitledPane text="Desde Oferta (Opcional)" collapsible="true" expanded="true">
+                    <VBox spacing="5">
+                        <Label text="Seleccione una oferta aceptada para autocompletar:" style="-fx-font-size: 11px; -fx-text-fill: gray;"/>
+                        <ComboBox fx:id="cboOferta" maxWidth="Infinity"/>
+                    </VBox>
+                </TitledPane>
+
+                <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                    <VBox spacing="10">
+                        <GridPane hgap="10" vgap="10">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="120" prefWidth="120"/>
+                                <ColumnConstraints minWidth="200" hgrow="ALWAYS"/>
+                            </columnConstraints>
+
+                            <Label text="Inmueble:*" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                            <ComboBox fx:id="cboInmueble" GridPane.columnIndex="1" GridPane.rowIndex="0" maxWidth="Infinity"/>
+
+                            <Label text="Comprador:*" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                            <ComboBox fx:id="cboComprador" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="Infinity"/>
+
+                            <Label text="Vendedor:*" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                            <ComboBox fx:id="cboVendedor" GridPane.columnIndex="1" GridPane.rowIndex="2" maxWidth="Infinity"/>
+
+                            <Label text="Agente:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                            <ComboBox fx:id="cboAgente" GridPane.columnIndex="1" GridPane.rowIndex="3" maxWidth="Infinity"/>
+
+                            <Label text="Monto Final:*" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                            <TextField fx:id="txtMontoFinal" GridPane.columnIndex="1" GridPane.rowIndex="4" promptText="0.00"/>
+
+                            <Label text="Forma de Pago:*" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                            <ComboBox fx:id="cboFormaPago" GridPane.columnIndex="1" GridPane.rowIndex="5" maxWidth="Infinity"/>
+
+                            <Label text="Tiempo (meses):" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                            <TextField fx:id="txtTiempoPago" GridPane.columnIndex="1" GridPane.rowIndex="6" promptText="Ej: 12, 24, 36"/>
+
+                            <Label text="Estado:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+                            <ComboBox fx:id="cboEstado" GridPane.columnIndex="1" GridPane.rowIndex="7" maxWidth="Infinity"/>
+
+                            <Label text="Fecha Cierre:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+                            <DatePicker fx:id="dpFechaCierre" GridPane.columnIndex="1" GridPane.rowIndex="8" maxWidth="Infinity"/>
+
+                            <Label text="Notas:" GridPane.columnIndex="0" GridPane.rowIndex="9" GridPane.valignment="TOP"/>
+                            <TextArea fx:id="txtNotas" GridPane.columnIndex="1" GridPane.rowIndex="9" prefRowCount="4"
+                                      promptText="Observaciones, condiciones especiales, etc."/>
+                        </GridPane>
+
+                        <Separator/>
+
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Button fx:id="btnNuevo" text="Nuevo Acuerdo" onAction="#onNuevo" prefWidth="130"/>
+                            <Button fx:id="btnGuardar" text="Guardar" onAction="#onGuardar" prefWidth="100" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+                        </HBox>
+
+                        <Label text="* Campos obligatorios" style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+                    </VBox>
+                </ScrollPane>
+            </VBox>
+        </SplitPane>
+    </center>
+
+</BorderPane>

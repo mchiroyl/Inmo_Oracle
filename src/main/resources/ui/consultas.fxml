@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.inmo.ui.ConsultasController" prefWidth="1100" prefHeight="700">
+
+    <top>
+        <VBox spacing="10">
+            <ToolBar>
+                <Label text="Consultas e Informes" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Ejecutar" onAction="#onEjecutar"/>
+                <Button text="Limpiar" onAction="#onLimpiar"/>
+            </ToolBar>
+
+            <!-- Panel de selección de consulta -->
+            <HBox spacing="10" style="-fx-padding: 10;">
+                <Label text="Seleccione consulta:" style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="cboTipoConsulta" prefWidth="400"/>
+            </HBox>
+
+            <!-- Panel de parámetros -->
+            <HBox spacing="10" style="-fx-padding: 0 10 10 10;">
+                <Label text="Parámetro:" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="txtParametro" prefWidth="300" promptText="Ingrese parámetro si es necesario"/>
+            </HBox>
+
+            <!-- Descripción -->
+            <VBox style="-fx-padding: 0 10 10 10;">
+                <Label text="Descripción:" style="-fx-font-weight: bold;"/>
+                <TextArea fx:id="txtDescripcion" editable="false" prefRowCount="3" wrapText="true" style="-fx-background-color: #f9f9f9;"/>
+            </VBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <!-- Tabla de resultados -->
+            <TableView fx:id="tableResultados" VBox.vgrow="ALWAYS">
+                <!-- Las columnas se crean dinámicamente según la consulta -->
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.inmo.ui.AgentesController">
+
+    <top>
+        <HBox spacing="8">
+            <padding><Insets topRightBottomLeft="10"/></padding>
+            <children>
+                <Button fx:id="btnNuevo"   text="Nuevo"   onAction="#onNuevo"/>
+                <Button fx:id="btnGuardar" text="Guardar" onAction="#onGuardar"/>
+                <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="txtBuscar" promptText="Buscar (nombre, email, tel)" prefWidth="320"/>
+                <Button text="Buscar" onAction="#onBuscar"/>
+            </children>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="8">
+            <padding><Insets topRightBottomLeft="10"/></padding>
+            <children>
+                <Label text="Administración de agentes" />
+                <Label text="Nombre"/>
+                <TextField fx:id="txtNombre"  promptText="Nombre del agente"/>
+
+                <Label text="Teléfono"/>
+                <TextField fx:id="txtTelefono" promptText="Ej. 5555-5555"/>
+
+                <Label text="Email"/>
+                <TextField fx:id="txtEmail"    promptText="correo@dominio.com"/>
+
+                <CheckBox fx:id="chkActivo" text="Activo" selected="true"/>
+                <Label fx:id="lblInfo" textFill="#d32f2f"/>
+            </children>
+        </VBox>
+    </left>
+
+    <center>
+        <TableView fx:id="tbl">
+            <columns>
+                <TableColumn fx:id="colId"     text="ID"       prefWidth="60"/>
+                <TableColumn fx:id="colNombre" text="Nombre"   prefWidth="220"/>
+                <TableColumn fx:id="colTel"    text="Teléfono" prefWidth="140"/>
+                <TableColumn fx:id="colEmail"  text="Email"    prefWidth="260"/>
+                <TableColumn fx:id="colActivo" text="Activo"   prefWidth="80"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>

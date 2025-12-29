@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.inmo.ui.UsuariosController">
+
+    <top>
+        <ToolBar>
+            <Label text="Administración de usuarios"/>
+            <Pane/>
+            <Button text="Nuevo"   onAction="#onNuevo"/>
+            <Button text="Guardar" onAction="#onGuardar"/>
+            <Button text="Eliminar" onAction="#onEliminar"/>
+            <!-- Botones Activar/Inactivar eliminados -->
+        </ToolBar>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.38">
+            <!-- Formulario -->
+            <VBox spacing="10.0">
+                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+                <GridPane hgap="8" vgap="8">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" minWidth="80"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                    </columnConstraints>
+
+                    <Label text="ID"       GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtId" editable="false"
+                               GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Email"    GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtEmail"
+                               GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Contraseña" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <PasswordField fx:id="txtPassword"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Rol"      GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="cmbRol"
+                              GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                    <Label text="Activo"   GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <CheckBox fx:id="chkActivo"
+                              GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                </GridPane>
+
+                <Label fx:id="lblInfo" style="-fx-text-fill: #d33;"/>
+            </VBox>
+
+            <!-- Tabla -->
+            <TableView fx:id="tbl" prefWidth="650">
+                <columns>
+                    <TableColumn fx:id="colId"     text="ID"    prefWidth="70"/>
+                    <TableColumn fx:id="colEmail"  text="Email" prefWidth="260"/>
+                    <TableColumn fx:id="colRol"    text="Rol"   prefWidth="140"/>
+                    <TableColumn fx:id="colActivo" text="Activo" prefWidth="80"/>
+                </columns>
+            </TableView>
+        </SplitPane>
+    </center>
+</BorderPane>
